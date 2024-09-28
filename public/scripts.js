@@ -69,3 +69,4 @@ audioPlayer.addEventListener('ended', function () {
 if (tracks.length > 0) {
     loadTrack(currentTrackIndex);
 }
+

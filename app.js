@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const spotRoutes = require('./routes/spotRoutes');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));

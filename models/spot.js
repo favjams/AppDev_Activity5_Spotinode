@@ -1,7 +1,7 @@
 const db = require('../config/database');
 
 // Function to get all songs
-exports.title = (callback) => {
+exports.getMusic = (callback) => {
     const query = 'SELECT * FROM tbl_spoti';  // Make sure the table name matches your database
     db.query(query, callback);
 };
@@ -13,7 +13,7 @@ exports.addMusic = (musicData, callback) => {
 };
 
 // Function to get a song by ID
-exports.MusicById = (musicId, callback) => {
+exports.getMusicById = (musicId, callback) => {
     const query = 'SELECT * FROM tbl_spoti WHERE id = ?';
     db.query(query, [musicId], callback);
 };

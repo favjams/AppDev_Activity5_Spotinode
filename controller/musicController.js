@@ -1,13 +1,12 @@
 const spot = require('../models/spot');
 
 // Get all songs and render the homepage
-exports.title = (req, res) => {
+exports.getMusic = (req, res) => {
     spot.getMusic((err, results) => {
         if (err) {
             console.error('Error fetching music: ', err);
             return res.status(500).send('Error fetching music');
         }
-        // Render the index.ejs and pass the songs data to the template
         res.render('index', { 
             title: 'Audio Player Example', 
             tracks: results  // Pass the songs fetched from the database
@@ -17,7 +16,7 @@ exports.title = (req, res) => {
 
 // Show the form to upload a new song
 exports.showUpload = (req, res) => {
-    res.render('upload');  // Make sure you have this view in your views folder
+    res.render('upload');  // Ensure you have this view in your views folder
 };
 
 // Add a new song
@@ -57,8 +56,8 @@ exports.updateMusic = (req, res) => {
     const updatedMusicData = {
         title: req.body.title,
         artist: req.body.artist,
-        image_url: req.body.image_url,  // This should be handled similarly for edit functionality
-        songs_url: req.file ? req.file.path : req.body.songs_url  // Use new file if uploaded
+        image_url: req.body.image_url,  
+        songs_url: req.file ? req.file.path : req.body.songs_url  
     };
 
     spot.updateMusic(musicId, updatedMusicData, (err, result) => {
@@ -70,11 +69,11 @@ exports.updateMusic = (req, res) => {
     });
 };
 
-// Delete a song
+//pagdedelete ng song
 exports.deleteMusic = (req, res) => {
     const musicId = req.params.id;
 
-    spoti.deleteMusic(musicId, (err, result) => {
+    spot.deleteMusic(musicId, (err, result) => {
         if (err) {
             console.error('Error deleting music: ', err);
             return res.status(500).send('Error deleting music');

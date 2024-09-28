@@ -16,7 +16,7 @@ const upload = multer({ storage });
 
 // Routes
 router.get('/', musicController.getMusic);  // Get all songs
-router.get('/upload', musicController.showUploadForm);  // Show upload form
+router.get('/upload', musicController.showUpload);  // Show upload form
 
 // Update route to handle both the image and song file uploads
 router.post('/upload', upload.fields([{ name: 'image_cover', maxCount: 1 }, { name: 'songFile', maxCount: 1 }]), musicController.addMusic);

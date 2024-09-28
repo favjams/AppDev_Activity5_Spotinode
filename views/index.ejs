@@ -120,7 +120,7 @@
         <% if (tracks.length > 0) { %>
             <% tracks.forEach((track, index) => { %>
                 <div class="song-item" data-index="<%= index %>">
-                    <img src="<%= track.image_path %>" alt="<%= track.title %>" class="song-cover">
+                    <img src="<%= track.image_url %>" alt="<%= track.title %>" class="song-cover">
                     <div class="song-info">
                         <h5 class="mb-0"><%= track.title %></h5>
                         <p class="mb-0"><%= track.artist %></p>
@@ -136,7 +136,7 @@
                             <i class="bi bi-heart"></i>
                         </button>
                     </div>
-                    <audio src="<%= track.file_path %>" class="song-file"></audio>
+                    <audio src="<%= track.songs_url %>" class="song-file"></audio>
                 </div>
             <% }) %>
         <% } else { %>
